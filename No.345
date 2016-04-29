@@ -1,0 +1,58 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+using namespace std;
+
+class Solution {
+	public:
+		string reverseVowels(string s) {
+			if (s.empty()) return s;
+			auto b = s.begin();
+			auto e = s.end();
+			vector<char> coun;
+			for (b; b != e;b++) {
+				switch (*b) {
+				case 'a':
+				case 'u':
+				case 'e':
+				case 'o':
+				case 'i':
+				case 'A':
+				case 'U':
+				case 'E':
+				case 'O':
+				case 'I':
+					coun.push_back(*b);
+				default:
+					break;
+				}
+			}
+			if (coun.empty()) return s;
+			auto ve = coun.end()-1;
+			
+			for (b=s.begin(); b != e; b++) {
+				switch (*b)
+				{
+				case 'a':
+				case 'u':
+				case 'e':
+				case 'o':
+				case 'i':
+				case 'A':
+				case 'U':
+				case 'E':
+				case 'O':
+				case 'I':
+					*b = *ve;
+					ve--;
+				default:
+					break;
+				}
+			}
+			return s;
+		}
+		
+	};
