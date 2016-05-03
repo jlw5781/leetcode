@@ -1,0 +1,11 @@
+class Solution {
+public:
+	bool isPowerOfThree(int n) {
+		if (n == 1) return true;
+		if (n == 0) return false;
+		if (n == pow(3, static_cast<int>(log(n) / log(3) + 0.5)))
+			return true;
+		return false;
+
+	}
+};
