@@ -1,0 +1,15 @@
+class Solution {
+public:
+	string reverseString(string s) {
+		
+		if (s.empty()) return s;
+		string s2=s;
+		int i = 0;
+		auto e = s2.end();
+		for (auto &c:s) {
+			e--;
+			*e = c;
+		}
+		return s2;
+	}
+};
