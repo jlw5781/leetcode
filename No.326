@@ -9,3 +9,10 @@ public:
 
 	}
 };
+
+//
+// This one is really interesting, because you can't use any loop or recursion.
+// I've tried the log function and judged if the outcome is an interger or not, but it doesn't work.
+// Because the program itself has the accuracy error, e.g. 5 is 4.999999999999991, we can't get interger even if the result is true.
+// And I tried to control the accuracy, but it always failed when n is very large.
+//
