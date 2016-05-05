@@ -1,0 +1,47 @@
+class Solution {
+public:
+	bool wordPattern(string pattern, string str) {
+		int s = pattern.size();
+		string currentword;
+		string newstr;
+		multimap<char, string> m;
+		int i = 0;
+		for (auto b = str.begin(); b != str.end();b++) {
+			if (isspace(*b)) {
+				m.insert({ pattern[i],currentword });
+				i++;
+				currentword.clear();
+				continue;
+			}
+			currentword.push_back(*b);
+		}
+		m.insert({ pattern[i++],currentword });
+		if (s != i) return false;
+		for (auto &c:pattern) {
+			if (m.count(c) != 1) {
+				auto iter = m.find(c);
+				int num = m.count(c) - 1;
+				while (num) {
+					if (iter->second != (iter++)->second) return false;
+					num--;
+				}
+			}
+			auto *f =&c;
+			f++;
+			if (c != *f) {
+				if (m.find(c)->second == m.find(*f)->second) return false;
+			}
+			auto iter = m.find(c);
+			string sec = iter->second;
+			newstr = newstr + sec + ' ';
+		}
+		auto e = newstr.end() - 1;
+		str = str + ' ';
+		if (newstr != str) return false;
+		return true;
+	}
+};
+
+//
+// This one is a little bit hard, I haven't found any simple codes.
+//
