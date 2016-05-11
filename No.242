@@ -1,0 +1,15 @@
+class Solution {
+public:
+	bool isAnagram(string s, string t) {
+		multiset<char> ms;
+		multiset<char> mt;
+		for (auto &c:s) {
+			ms.insert(c);
+		}
+		for (auto &c : t) {
+			mt.insert(c);
+		}
+		if (ms == mt) return true;
+		return false;
+	}
+};
