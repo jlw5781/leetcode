@@ -1,0 +1,23 @@
+// Forward declaration of isBadVersion API.
+bool isBadVersion(int version);
+
+class Solution {
+public:
+	int firstBadVersion(int n) {
+		int b = 1, e = n;
+		int ans=0;
+		while (b <= e) {
+			int mid = (e - b)/2 + b;
+			if (isBadVersion(mid)) {
+				e = mid-1;
+				ans = mid;
+			}else b = mid+1;
+		}
+		return ans;
+	}
+};
+
+//
+// I tried to use recursion  but failed.
+// This comes from someone else.
+//
