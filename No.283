@@ -1,0 +1,18 @@
+class Solution {
+public:
+	void moveZeroes(vector<int>& nums) {
+		auto e = nums.end();
+		for (auto b = nums.begin(); b != nums.end(); b++) {
+			while (*b == 0) {
+				if (b == e) break;
+				auto t = b;
+				while (t != nums.end() - 1) {
+					swap(*t, *(t + 1));
+					t++;
+				}
+				e--;
+			}
+			if (b == e) break;
+		}
+	}
+};
