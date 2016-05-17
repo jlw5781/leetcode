@@ -1,0 +1,28 @@
+class Solution {
+public:
+	int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+		int I, J, K, L;
+		if (A==B&&B==C&&C==D&&A==D) return (G-E)*(H-F);
+		if (E==F&&F==G&&G==H&&H==E) return (C-A)*(D-B);
+		if (A >= E)
+			I = A;
+		else I = E;
+		if (B >= F)
+			J = B;
+		else J = F;
+		if (C <= G)
+			K = C;
+		else K = G;
+		if (D <= H)
+			L = D;
+		else L = H;
+		if (A>G||E>C||B>H||F>D) {
+		    I=0;
+		    J=0;
+		    K=0;
+		    L=0;
+		}
+		int squ = (C-A)*(D-B)+(G-E)*(H-F)-(K - I)*(L - J);
+		return squ;
+	}
+};
